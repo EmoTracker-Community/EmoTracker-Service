@@ -1,0 +1,307 @@
+{
+  "A Link to the Past Randomizer": {
+    "name": "The Legend of Zelda: A Link to the Past",
+    "series": "Legend of Zelda",
+    "series_priority": 1,
+    "priority": 0,
+    "image": "games/alttpr_logo.png",
+    "memory_watch_config": {
+        "memory_range_whitelist": [
+            "0x00ffb0:0x00ffdf",
+            "0x7e0000:0x7e00b0",
+            "0x7ef000:0x7ef500",
+            "0x308210:0x30823f",
+            "0x7e040c:0x7e040c",
+            "0x7e010b:0x7e0114",
+            "0x7e0130:0x7e0131"
+        ],
+        "memory_range_blacklist": [
+            
+        ]
+    }
+  },
+  "Ocarina of Time Randomizer": {
+    "name": "The Legend of Zelda: Ocarina of Time",
+    "series": "Legend of Zelda",
+    "priority": 1,
+    "series_priority": 1,
+    "image": "games/ootr_logo.png"
+  },  
+  "The Legend of Zelda Randomizer": {
+    "name": "The Legend of Zelda",
+    "series": "Legend of Zelda",
+    "priority": 2,
+    "series_priority": 1,
+    "image": "games/tlozr_logo.png"
+  },  
+  "Zelda 2 Randomizer": {
+    "name": "Zelda 2: The Adventures of Link",
+    "series": "Legend of Zelda",
+    "priority": 3,
+    "series_priority": 1,
+    "image": "games/z2r_logo.png"
+  },
+  "Majora's Mask Randomizer": {
+    "name": "The Legend of Zelda: Majora's Mask",
+    "series": "Legend of Zelda",
+    "priority": 4,
+    "series_priority": 1,
+    "image": "games/zmmr_logo.png"
+  },
+  "Wind Waker Randomizer": {
+    "name": "The Legend of Zelda: The Wind Waker",
+    "series": "Legend of Zelda",
+    "priority": 5,
+    "series_priority": 1,
+    "image": "games/wwr_logo.png"
+  },
+  "Twilight Princess": {
+    "name": "The Legend of Zelda: Twilight Princess",
+    "series": "Legend of Zelda",
+    "priority": 6,
+    "series_priority": 1,
+    "image": "games/loz_tp.png"
+  },  
+  "Minish Cap Randomizer": {
+    "name": "The Legend of Zelda: The Minish Cap",
+    "series": "Legend of Zelda",
+    "priority": 7,
+    "series_priority": 1,
+    "image": "games/zmcr_logo.png"
+  },  
+  "Link's Awakening Randomizer": {
+    "name": "The Legend of Zelda: Link's Awakening",
+    "series": "Legend of Zelda",
+    "series_priority": 1,
+    "image": "games/ladxr_logo.png"
+  },
+  "Zelda Oracles Randomizer": {
+    "name": "The Legend of Zelda: Oracle of Ages/Seasons",
+    "series": "Legend of Zelda",
+    "series_priority": 1,
+    "image": "games/ooasr_logo.png"
+  },
+  "The Legend of Zelda: A Link Between Worlds": {
+    "name": "The Legend of Zelda: A Link Between Worlds",
+    "series": "Legend of Zelda",
+    "series_priority": 1,
+    "image": "games/albw_logo.png"
+  },  
+  "Final Fantasy Randomizer": {
+    "name": "Final Fantasy",
+    "series": "Final Fantasy",
+    "priority": 0,
+    "image": "games/ff_logo.png"
+  },
+  "FFIV Free Enterprise Randomizer": {
+    "series": "Final Fantasy",
+    "name": "Final Fantasy IV",
+    "image": "games/ff4fe_logo.png"
+  },
+  "Final Fantasy V: Career Day": {
+    "series": "Final Fantasy",
+    "name": "Final Fantasy V",
+    "image": "games/ff5_logo.png"
+  },
+  "Final Fantasy VI": {
+    "series": "Final Fantasy",
+    "image": "games/ff6_logo.png"
+  },    
+  "Hollow Knight Randomizer": {
+    "name": "Hollow Knight",
+    "image": "games/hollowknight_logo.png"
+  },
+  "Metroid Dread": {
+    "name": "Metroid: Dread",
+    "series": "Metroid",
+    "image": "games/mdread.png"
+  },  
+  "Metroid: Zero Mission Randomizer": {
+    "name": "Metroid: Zero Mission",
+    "series": "Metroid",
+    "image": "games/mzmr_logo.png"
+  },
+  "AM2R Randomizer": {
+    "name": "AM2R",
+    "series": "Metroid (Unofficial)",
+    "image": "games/am2r_logo.png"
+  },  
+  "Metroid Fusion Randomizer": {
+    "name": "Metroid Fusion",
+    "series": "Metroid",
+    "image": "games/mfusion_logo.png"
+  },    
+  "Super Metroid Randomizer": {
+    "name": "Super Metroid",
+    "series": "Metroid",
+    "image": "games/sm_logo.png"
+  },  
+  "Super Metroid and A Link to the Past Item Randomizer": {
+    "name": "Super Metroid + LTTP Randomizer",
+    "image": "games/smz3_logo.png"
+  },
+  "Super Adventure Island 2 Randomizer": {
+    "name": "Super Adventure Island 2",
+    "image": "games/sai2r_logo.png"
+  },
+  "Legend of Zelda / Metroid Crossover": {
+    "name": "Metroid + Legend of Zelda Crossover",
+    "image": "games/lozmx_logo.png"
+  },
+  "Resident Evil HD Remaster Randomizer": {
+    "name": "Resident Evil HD Remaster",
+    "series": "Resident Evil",
+    "image": "games/reremaster_logo.png"
+  },
+  "Resident Evil 2 Randomizer": {
+    "name": "Resident Evil 2",
+    "series": "Resident Evil",
+    "image": "games/re2_logo.png"
+  },  
+  "Metroid Prime Randomizer": {
+    "name": "Metroid Prime",
+    "series": "Metroid",
+    "image": "games/mpr_logo.png"
+  },
+  "Metroid Prime 2: Echoes": {
+    "name": "Metroid Prime 2: Echoes",
+    "series": "Metroid",
+    "image": "games/mp2r_logo.png"
+  },  
+  "Castlevania: Aria of Sorrow Randomizer": {
+    "name": "Castlevania: Aria of Sorrow",
+    "series": "Castlevania",
+    "image": "games/caosr_logo.png"
+  },  
+  "Castlevania: Dawn of Sorrow Randomizer": {
+    "name": "Castlevania: Dawn of Sorrow",
+    "series": "Castlevania",
+    "image": "games/cdos_logo.png"
+  },
+  "Castlevania: Portrait of Ruin Randomizer": {
+    "name": "Castlevania: Portrait of Ruin",
+    "series": "Castlevania",
+    "image": "games/cpor_logo.png"
+  },
+  "Castlevania: Order of Ecclesia Randomizer": {
+    "name": "Castlevania: Order of Ecclesia",
+    "series": "Castlevania",
+    "image": "games/cooe_logo.png"
+  },   
+  "Castlevania: Symphony of the Night Randomizer": {
+    "name": "Castlevania: Symphony of the Night",
+    "series": "Castlevania",
+    "image": "games/csotnr_logo.png"
+  },
+  "Pokémon Red/Blue": {
+    "name": "Pokémon Red & Blue",
+    "image": "games/pokemonrb_logo.png",
+    "series": "Pokémon",
+    "priority": 0
+  },
+  "Pokémon Crystal": {
+    "image": "games/pokemoncry_logo.png",
+    "series": "Pokémon",
+    "priority": 1
+  },
+  "Dark Souls Randomizer": {
+    "name": "Dark Souls",
+    "image": "games/darksouls_logo.png"
+  },
+  "Elden Ring": {
+    "name": "Elden Ring",
+    "image": "games/eldenring_logo.png"
+  }, 
+  "Environmental Station Alpha Randomizer": {
+    "name": "Environmental Station Alpha",
+    "image": "games/esar_logo.png"
+  },
+  "Crystalis Randomizer": {
+    "name": "Crystalis",
+    "image": "games/crysr_logo.png"
+  },
+  "Super Mario 64": {
+    "image": "games/sm64_logo.png",
+    "series": "Mario"
+  },
+  "Paper Mario": {
+    "image": "games/papermario_logo.png",
+    "series": "Mario"
+  }, 
+  "Super Mario RPG Randomizer": {
+    "name": "Super Mario RPG",
+    "image": "games/smrpgr_logo.png",
+    "series": "Mario"
+  },
+  "Cave Story Randomizer": {
+    "name": "Cave Story",
+    "image": "games/csr_logo.png"
+  },
+  "Soul Blazer Randomizer": {
+    "name": "Soul Blazer",
+    "image": "games/soulblazer_logo.png"
+  },  
+  "La-Mulana": {
+    "name": "La Mulana",
+    "series": "La-Mulana",
+    "image": "games/lmr.png"
+  },  
+  "La-Mulana 2 Randomizer": {
+    "name": "La-Mulana 2",
+    "series": "La-Mulana",
+    "image": "games/lm2r_logo.png"
+  },
+  "Terranigma Randomizer": {
+    "name": "Terranigma",
+    "image": "games/terranigma_logo.png"
+  },
+  "Illusion of Gaia Randomizer": {
+    "name": "Illusion of Gaia",
+    "image": "games/illusionofgaia_logo.png"
+  },
+  "Chrono Trigger Randomizer": {
+    "name": "Chrono Trigger",
+    "image": "games/chronotrigger_logo.png"
+  },
+  "Gato Roboto": {
+    "image": "games/gatoroboto_logo.png"
+  },
+  "Ori and the Will of the Wisps": {
+    "image": "games/oriwotw_logo.png"
+  },
+  "Kingdom Hearts II": {
+    "series": "Kingdom Hearts",
+    "image": "games/kh2.png"
+  },
+  "Dragon Warrior": {
+    "name": "Dragon Quest",
+    "series": "Dragon Quest",
+    "image": "games/dq1_logo.png"
+  },  
+  "Earthbound": {
+    "name": "Earthbound (Mother 2)",
+    "series": "Mother",
+    "image": "games/earthbound_logo.png"
+  },  
+  "Phasmophobia": {
+    "image": "games/phasmophobia_logo.png"
+  },
+  "Axiom Verge Randomizer": {
+    "name": "Axiom Verge",
+    "image": "games/axiomverge_logo.png"
+  },  
+  "Ratchet and Clank": {
+    "name": "Ratchet and Clank",
+    "series": "Ratchet and Clank",
+    "image": "games/rac_logo.png"
+  },
+  "Tunic": {
+    "name": "Tunic",
+    "image": "games/tunic_logo.png"
+  },    
+  "Development": {
+    "name": "Developer Support",
+    "series_priority": 10001,
+    "image": "games/development_logo.png"
+  }  
+}
