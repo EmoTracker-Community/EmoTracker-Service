@@ -1,0 +1,41 @@
+{
+  "name": "EmoTracker Official Packages",
+  "packages": [
+    {
+      "name": "EmoTracker Official ALTTP Support",
+      "author": "EmoSaru",
+      "game_name": "A Link to the Past Randomizer",
+      "version": "1.0.7.14",
+      "flags": [ "official", "map", "pins", "chathud", "autotracker" ],
+      "required_app_version": "2.3.8.8",
+      "uid": "alttpr_emotracker_emosaru",
+      "link": "https://emotracker.net/service/packages/alttpr_emotracker_emosaru.zip",
+      "variants": [
+        {
+          "name": "Item Tracker",
+          "flags": [ "chathud", "autotracker" ]
+        },
+        {
+          "name": "Item Tracker w/ Keys",
+          "flags": [ "chathud", "autotracker" ]
+        },
+        {
+          "name": "Standard Map Tracker",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        },
+        {
+          "name": "Keysanity Map Tracker",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        },
+        {
+          "name": "Inverted - Standard Map Tracker",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        },
+        {
+          "name": "Inverted - Keysanity Map Tracker",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        }
+      ]
+    }  
+  ]
+}
