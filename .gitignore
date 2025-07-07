@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/.vs/EmoTracker-Service
+/.vs/EmoTracker-Service/FileContentIndex
+/.vs/EmoTracker-Service/FileContentIndex/5db7f1b6-c9f1-459d-bf84-dce553e7c43b.vsidx
+/.vs/EmoTracker-Service/FileContentIndex/e285e3c0-dcf7-4b3c-9298-0e589b745d2e.vsidx
+/.vs/EmoTracker-Service/v17
+/.vs/EmoTracker-Service/v17/.wsuo
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
