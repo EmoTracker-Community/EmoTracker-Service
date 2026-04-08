@@ -1,0 +1,110 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://emotracker.net/developers/schemas/repository.json",
+    "title": "EmoTracker: Package Repository",
+    "description": "An EmoTracker package repository file. Hosted by pack authors over HTTPS and pointed at by an entry in the community `package_repositories.json` (or by a user's Additional Repositories list). Each repository declares a display name and an array of packages it contains. Parsed by `EmoTracker.Data/Packages/PackageRepository.cs`.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Display name of the repository, shown in the Package Manager when its packages are listed. Falls back to the display name from the community `package_repositories.json` if omitted."
+        },
+        "packages": {
+            "type": "array",
+            "description": "The packages this repository serves. Entries missing required fields, or whose `version` doesn't parse, are silently dropped at load time.",
+            "items": { "$ref": "#/definitions/package" }
+        }
+    },
+    "definitions": {
+        "package": {
+            "type": "object",
+            "required": [ "name", "uid", "link", "version" ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Display name of the pack, shown in the Package Manager. Required — entries without a name are silently skipped."
+                },
+                "uid": {
+                    "type": "string",
+                    "description": "Unique identifier for the pack. Used as the local install filename (`<uid>.zip`) and as the pack's identity for update detection. Must be unique across all repositories the user has loaded — collisions cause one pack to overwrite the other on install. Required — entries without a uid are silently skipped."
+                },
+                "link": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Direct download URL for the pack `.zip` file. Must point at a real, downloadable archive. Required — entries without a link are silently skipped."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Pack version in System.Version format (`Major.Minor[.Build[.Revision]]`). Used for update detection by the Package Manager. **Required** — entries with a missing or unparseable version are silently dropped at load time, which is the most common reason a new pack fails to appear in the UI.",
+                    "examples": [ "1.0.7.14", "0.1.0", "2.0" ]
+                },
+                "required_app_version": {
+                    "type": "string",
+                    "description": "Minimum EmoTracker application version required to run the pack, in System.Version format. If the user's installed EmoTracker is older than this, the Package Manager shows the pack with status `AppUpdateRequired` and blocks installation until they update.",
+                    "examples": [ "2.3.8.8", "3.0.0.0" ]
+                },
+                "author": {
+                    "type": "string",
+                    "default": "Unknown",
+                    "description": "Display name of the pack author, shown in italics next to the pack name in the Package Manager."
+                },
+                "game_name": {
+                    "type": "string",
+                    "description": "The game this pack tracks. Should match a top-level key in the EmoTracker service's `supported_games.json` so the Package Manager can group the pack under the right game and display the right icon."
+                },
+                "documentation_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Optional link surfaced in the UI for users who want to read pack documentation. Also opened by the in-app `F1` shortcut while the pack is loaded."
+                },
+                "flags": {
+                    "type": "array",
+                    "description": "Array of capability strings describing what the pack offers. Recognized values are case-insensitive. The `Official` and `Featured` flags are **privileged** — they are stripped by the client unless the pack's `link` URL contains the configured `service_base_url` of the running EmoTracker, so third-party hosts cannot self-promote.",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Official",
+                            "Featured",
+                            "Map",
+                            "Pins",
+                            "ChatHUD",
+                            "AutoTracker",
+                            "Unsafe"
+                        ]
+                    }
+                },
+                "variants": {
+                    "type": "array",
+                    "description": "Optional list of pre-configured variants the pack ships with. Each variant appears as a sub-entry of the pack and lets the user pick which view to load (e.g., item-only vs full map tracker).",
+                    "items": { "$ref": "#/definitions/variant" }
+                }
+            }
+        },
+        "variant": {
+            "type": "object",
+            "required": [ "name" ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Display name for the variant, shown in the Package Manager and the gear-menu Installed Packages submenu."
+                },
+                "flags": {
+                    "type": "array",
+                    "description": "Per-variant capability flags, using the same value set as the package's top-level `flags`. Same privileged-flag rules apply.",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Official",
+                            "Featured",
+                            "Map",
+                            "Pins",
+                            "ChatHUD",
+                            "AutoTracker",
+                            "Unsafe"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
