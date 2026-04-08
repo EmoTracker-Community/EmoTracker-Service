@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://emotracker.net/developers/schemas/manifest.json",
+    "title": "EmoTracker: Pack Manifest",
+    "description": "Top-level metadata for an EmoTracker game pack. Lives at the pack root as `manifest.json` and is the only file EmoTracker requires at a known path.",
+    "type": "object",
+    "required": [ "name", "uid", "version" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Display name of the pack, shown in the Package Manager and the gear-menu Installed Packages list."
+        },
+        "uid": {
+            "type": "string",
+            "description": "Unique identifier for the pack. Used as the local install filename (`<uid>.zip`) and as the pack's identity for update detection. Must be unique across every pack the user might install. Pick something namespaced and stable like `alttpr_emotracker_emosaru` rather than something generic like `tracker`."
+        },
+        "package_uid": {
+            "type": "string",
+            "description": "DEPRECATED legacy alias for `uid`. New packs should use `uid` instead. EmoTracker reads `package_uid` only when `uid` is not present."
+        },
+        "version": {
+            "type": "string",
+            "description": "Pack version in System.Version format (`Major.Minor[.Build[.Revision]]`). Used for update detection by the Package Manager.",
+            "examples": [ "1.0.7.14", "0.1.0", "2.0" ]
+        },
+        "package_version": {
+            "type": "string",
+            "description": "DEPRECATED legacy alias for `version`. New packs should use `version` instead. EmoTracker reads `package_version` only when `version` is not parseable."
+        },
+        "platform": {
+            "type": "string",
+            "description": "The game platform this pack targets. Required for autotracking — `AutoTrackingProviderRegistry.GetProvidersForPack` filters registered providers to those whose `SupportedPlatforms` contains this value. A pack with no `platform` (and no explicit `auto_tracker_providers`) cannot use autotracking. The valid values match the `EmoTracker.Data.Packages.GamePlatform` enum.",
+            "enum": [ "NES", "SNES", "N64", "Gameboy", "GBA", "Gamecube", "Genesis" ]
+        },
+        "game_name": {
+            "type": "string",
+            "description": "The game this pack tracks, matching a top-level key from the EmoTracker service's `supported_games.json`. Used to resolve the game's display info, image, and memory whitelist."
+        },
+        "game_variant": {
+            "type": "string",
+            "description": "An optional sub-variant of the game (e.g. a region, revision, or rule-set name). Free-form string used for display only."
+        },
+        "author": {
+            "type": "string",
+            "description": "Display name of the pack's author, shown in the Package Manager and Installed Packages submenu."
+        },
+        "layout_engine_version": {
+            "type": "string",
+            "description": "The layout engine version the pack was authored against, in System.Version format. Used for legacy compatibility shims like the `itemgrid` `margin` interpretation. New packs should set this to the latest layout engine version.",
+            "examples": [ "1.0" ]
+        },
+        "enable_unsafe_scripting": {
+            "type": "boolean",
+            "default": false,
+            "description": "If `true`, the Lua sandbox grants this pack additional `os` / `io` access for filesystem reads and writes. Packs flagged unsafe show a warning icon in the Package Manager and discourage installation. Only enable this if your pack genuinely needs filesystem access — almost no pack does."
+        },
+        "auto_tracker_providers": {
+            "type": "array",
+            "description": "Optional explicit list of autotracking provider UIDs the pack supports. When set, only providers with one of these UIDs are offered for the pack, regardless of platform. When unset (the typical case), providers are matched against the pack's `platform` field. Known provider UIDs: `sni` (SNI / SNES), `nwa` (NWA / BizHawk and other NWA-capable hosts).",
+            "items": { "type": "string" },
+            "examples": [
+                [ "sni" ],
+                [ "nwa" ],
+                [ "sni", "nwa" ]
+            ]
+        },
+        "variants": {
+            "type": "object",
+            "description": "Map of variant identifier to variant definition. Each variant becomes a separate selectable entry in the gear-menu Installed Packages submenu and lets users switch between e.g. an item-only and a full map-tracking view of the same pack. Variant identifiers must be unique within the pack and become part of the variant's user-data path.",
+            "patternProperties": {
+                "^.+$": {
+                    "type": "object",
+                    "required": [ "display_name" ],
+                    "properties": {
+                        "display_name": {
+                            "type": "string",
+                            "description": "Human-readable name for this variant, shown in the gear menu."
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
