@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://emotracker.net/developers/schemas/settings.json",
+    "title": "EmoTracker: Pack Settings",
+    "description": "Optional runtime settings for an EmoTracker pack. Lives at the pack root as `settings.json` and is read by `Tracker.LoadPackageSettings` immediately after the pack's manifest is loaded. Every field is optional; omit the file entirely to accept all defaults. For backwards compatibility, EmoTracker falls back to reading these fields from a legacy `tracker_layout.json` at the pack root if `settings.json` is missing, but new packs should use `settings.json`.",
+    "type": "object",
+    "properties": {
+        "allow_resize": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether the user is allowed to resize the main tracker window while this pack is loaded. Set to `false` to pin the window to whatever size your layout is designed for."
+        },
+        "disabled_image_filter": {
+            "type": "string",
+            "description": "The [image filter](https://github.com/EmoTracker-Community/EmoTracker/wiki/Authoring-Image-Filters) spec used as the pack-wide default for inactive/disabled icons. Individual items can override this via their own `disabled_image_filter` base field or the per-field `disabled_img_mods` image-filter spec. If omitted, the tracker default `grayscale, dim` is used.",
+            "examples": [
+                "grayscale, dim",
+                "saturation|0.2|BT709, brightness|0.6",
+                "dim"
+            ]
+        },
+        "enable_accessibility_rule_caching": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether the runtime caches rule-evaluation results across an accessibility refresh. Leave at the default unless you're debugging a logic issue and need to force every rule to re-evaluate from scratch on every lookup."
+        },
+        "chest_opened_img": {
+            "type": "string",
+            "description": "Pack-relative path to the image used for *open* (cleared) chest slots in the location-popup chest list. Cascades down to every location and section unless they override it. If omitted, EmoTracker uses its built-in default chest art."
+        },
+        "chest_unopened_img": {
+            "type": "string",
+            "description": "Pack-relative path to the image used for *unopened* (unchecked) chest slots in the location-popup chest list. Cascades down to every location and section unless they override it. If omitted, EmoTracker uses its built-in default chest art."
+        },
+        "always_allow_chest_manipulation": {
+            "type": "boolean",
+            "default": false,
+            "description": "Pack-wide default for whether the user can click chests even when the containing section is not normally reachable. Individual locations and sections can override this. Useful if your pack ships with sections that should always be manipulable regardless of accessibility logic."
+        }
+    }
+}
