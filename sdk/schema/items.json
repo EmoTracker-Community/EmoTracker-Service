@@ -34,6 +34,13 @@
                 "disabled_image_spec": {
                     "type": "string",
                     "description": "Allows for overring the image filter applied by default to disabled states for this item"
+                },
+                "phonetic_substitutes": {
+                    "type": "array",
+                    "description": "Optional list of alternate phonetic phrases the voice control system should recognise as this item's name. Useful when the item name contains words not in the speech model's vocabulary (e.g. 'hook shot' as a substitute for 'hookshot').",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         }
