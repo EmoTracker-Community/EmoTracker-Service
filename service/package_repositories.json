@@ -72,5 +72,6 @@
     "exec": "https://raw.githubusercontent.com/Exec-6/ExTrack/main/repository.json",
     "Phantom": "https://emotracker.phantom-games.com/repository.json",
     "CommodoreCanadia64": "https://raw.githubusercontent.com/CommodoreCanadia64/PSIVPDTRACKER/main/repository.json",
-    "skarthe": "https://skarthetwitch.github.io/repositories/repository.json"
+    "skarthe": "https://skarthetwitch.github.io/repositories/repository.json",
+    "everydaysimpledev", "https://everydaysimpledev.github.io/EmoTrackerPacks/repository.json",
 }
