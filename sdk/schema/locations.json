@@ -43,6 +43,19 @@
                     "type": "boolean",
                     "description": "Determines whether this section has an item capture spot or not (default is false)"
                 },
+                "capture_badge_offset": {
+                    "type": "string",
+                    "description": "If defined, this will add a badge to the parent location using the X and Y offset specified by this section. This offset is relative to the alignment/offset defined on the map_locations",
+                    "examples": [ "0, 0" ]
+                },
+                "clear_on_capture": {
+                    "type": "boolean",
+                    "description": "Capturing an item in this section will automatically clear the section (default is false)"
+                },
+                "capture_persist": {
+                    "type": "boolean",
+                    "description": "If true, captured items in this section will persist even when the section is cleared (default is false)"
+                },
                 "hosted_item": {
                     "type": "string",
                     "description": "An item code which is 'hosted' by this section. It will be granted when this section is cleared, and can be tracked from the section's UI"
@@ -136,6 +149,16 @@
                             "badge_size": {
                                 "type": "integer",
                                 "description": "The display size of badges added to this location on the specified map. The default 75% of the location size"
+                            },
+                            "badge_alignment" : {
+                                "type": "string",
+                                "description": "Specifies the alignment of the badge, relative to the location. The default is bottomright",
+                                "enum": [ "topleft", "top", "topright", "left", "center", "right", "bottomleft", "bottom", "bottomright" ]
+                            },
+                            "badge_offset" : {
+                                "type": "string",
+                                "description": "Specifies the offset of the badge from its default position (default: \"0, 0\")",
+                                "examples": [ "5, 5" ]
                             },
                             "enable_badge_hit_test": {
                                 "type": "boolean",
