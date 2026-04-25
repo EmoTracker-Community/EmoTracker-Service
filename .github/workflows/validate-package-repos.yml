@@ -17,8 +17,8 @@ jobs:
       - name: Fetch base branch
         run: git fetch origin ${{ github.event.pull_request.base.ref || 'main' }}
 
-      - name: Install jsonschema
-        run: pip install jsonschema --quiet
+      - name: Install dependencies
+        run: pip install jsonschema json5 --quiet
 
       - name: Validate package repository URLs
         env:

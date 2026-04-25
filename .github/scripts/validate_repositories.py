@@ -1,4 +1,5 @@
 import json
+import json5
 import os
 import subprocess
 import sys
@@ -71,8 +72,8 @@ def main():
             continue
 
         try:
-            data = json.loads(content)
-        except json.JSONDecodeError as e:
+            data = json5.loads(content)
+        except ValueError as e:
             print(f"  ✗ Response is not valid JSON: {e}")
             failed = True
             continue
