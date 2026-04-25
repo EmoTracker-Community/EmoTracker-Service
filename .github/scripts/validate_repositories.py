@@ -13,25 +13,31 @@ SCHEMA_FILE = "sdk/schema/repository.json"
 TIMEOUT = 15
 
 
-def get_base_contents(base_ref):
+def git_show(ref, path):
     result = subprocess.run(
-        ["git", "show", f"origin/{base_ref}:{REPOS_FILE}"],
+        ["git", "show", f"{ref}:{path}"],
         capture_output=True, text=True
     )
     if result.returncode != 0:
-        return {}
-    return json.loads(result.stdout)
+        return None
+    return result.stdout
 
 
 def main():
     event = os.environ.get("GITHUB_EVENT_NAME", "")
     base_ref = os.environ.get("BASE_REF", "main")
+    pr_head_sha = os.environ.get("PR_HEAD_SHA", "")
 
-    with open(REPOS_FILE) as f:
-        new_repos = json.load(f)
+    if pr_head_sha:
+        new_content = git_show(pr_head_sha, REPOS_FILE)
+        new_repos = json.loads(new_content) if new_content else {}
+    else:
+        with open(REPOS_FILE) as f:
+            new_repos = json.load(f)
 
     if event == "pull_request_target":
-        old_repos = get_base_contents(base_ref)
+        base_content = git_show(f"origin/{base_ref}", REPOS_FILE)
+        old_repos = json.loads(base_content) if base_content else {}
         changed = {k: v for k, v in new_repos.items()
                    if k not in old_repos or old_repos[k] != v}
         if not changed:
