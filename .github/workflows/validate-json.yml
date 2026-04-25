@@ -1,0 +1,33 @@
+name: Validate JSON
+
+on:
+  pull_request:
+
+jobs:
+  validate-json:
+    name: Validate JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get changed JSON files
+        id: changed
+        uses: tj-actions/changed-files@v46
+        with:
+          files: '**/*.json'
+          files_ignore: '.vs/**'
+
+      - name: Validate JSON syntax
+        if: steps.changed.outputs.any_changed == 'true'
+        run: |
+          failed=0
+          for f in ${{ steps.changed.outputs.all_changed_files }}; do
+            if python -m json.tool "$f" > /dev/null 2>&1; then
+              echo "✓ $f"
+            else
+              echo "✗ $f — invalid JSON"
+              python -m json.tool "$f" 2>&1 || true
+              failed=1
+            fi
+          done
+          exit $failed
