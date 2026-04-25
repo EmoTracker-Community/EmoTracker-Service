@@ -30,7 +30,15 @@ def main():
 
     if pr_head_sha:
         new_content = git_show(pr_head_sha, REPOS_FILE)
-        new_repos = json.loads(new_content) if new_content else {}
+        if not new_content:
+            print(f"{REPOS_FILE} not found in PR head — nothing to validate.")
+            sys.exit(0)
+        try:
+            new_repos = json.loads(new_content)
+        except json.JSONDecodeError as e:
+            print(f"{REPOS_FILE} has a JSON syntax error: {e}")
+            print("Fix the syntax error first (see Validate JSON check).")
+            sys.exit(1)
     else:
         with open(REPOS_FILE) as f:
             new_repos = json.load(f)
