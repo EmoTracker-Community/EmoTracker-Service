@@ -44,6 +44,17 @@ def main():
     with open(SCHEMA_FILE) as f:
         schema = json.load(f)
 
+    flag_enum = schema["definitions"]["package"]["properties"]["flags"]["items"]["enum"]
+    canonical_flags = {f.lower(): f for f in flag_enum}
+
+    def normalize_flags(data):
+        for package in data.get("packages", []):
+            if "flags" in package:
+                package["flags"] = [canonical_flags.get(f.lower(), f) for f in package["flags"]]
+            for variant in package.get("variants", []):
+                if "flags" in variant:
+                    variant["flags"] = [canonical_flags.get(f.lower(), f) for f in variant["flags"]]
+
     failed = False
     for name, url in changed.items():
         print(f"\n{name}\n  {url}")
@@ -65,6 +76,8 @@ def main():
             print(f"  ✗ Response is not valid JSON: {e}")
             failed = True
             continue
+
+        normalize_flags(data)
 
         try:
             jsonschema.validate(instance=data, schema=schema)
