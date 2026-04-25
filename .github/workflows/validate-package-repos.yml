@@ -1,0 +1,27 @@
+name: Validate Package Repositories
+
+on:
+  pull_request_target:
+  workflow_dispatch:
+
+jobs:
+  validate-package-repos:
+    name: Validate Package Repositories
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.event.pull_request.base.ref || 'main' }}
+
+      - name: Install jsonschema
+        run: pip install jsonschema --quiet
+
+      - name: Validate package repository URLs
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.event.pull_request.base.ref || 'main' }}
+        run: python .github/scripts/validate_repositories.py
