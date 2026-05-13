@@ -9,7 +9,7 @@
       "flags": [ "official", "map", "pins", "chathud", "autotracker" ],
       "required_app_version": "2.3.8.8",
       "uid": "alttpr_emotracker_emosaru",
-      "link": "https://emotracker.net/service/packages/alttpr_emotracker_emosaru.zip",
+      "link": "https://raw.githubusercontent.com/EmoTracker-Community/EmoTracker-Service/main/service/packages/alttpr_emotracker_emosaru.zip",
       "variants": [
         {
           "name": "Item Tracker",

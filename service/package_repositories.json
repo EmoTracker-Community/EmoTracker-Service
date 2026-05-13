@@ -1,5 +1,5 @@
 {
-    "EmoTracker Official": "https://emotracker.net/service/packages/repository.json",
+    "EmoTracker Official": "https://raw.githubusercontent.com/EmoTracker-Community/EmoTracker-Service/main/service/packages/repository.json",
     "fouton.github.io": "https://fouton.github.io/repository.json",
     "dududedude.github.io": "https://dududedude.github.io/Dudude-s-Tinkering/repository.json",
     "jrjathome.github.io": "https://jrjathome.github.io/repository.json",
