@@ -42,7 +42,7 @@
       "author": "Dorkmaster Flek & Ninban & gilgatex",
       "game_name": "Super Metroid + LTTP Randomizer",
       "version": "3.6.5",
-      "flags": [ "map", "pins", "chathud", "autotracker" ],
+      "flags": [ "official", "map", "pins", "chathud", "autotracker" ],
       "required_app_version": "3.0.3.2",
       "uid": "smalttprando_gilgatex_emotracker3",
       "link": "https://raw.githubusercontent.com/EmoTracker-Community/EmoTracker-Service/main/service/packages/smalttprando_gilgatex_emotracker3.zip",
