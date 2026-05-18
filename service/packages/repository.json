@@ -36,6 +36,30 @@
           "flags": [ "map", "pins", "chathud", "autotracker" ]
         }
       ]
-    }  
+    },
+    {
+      "name": "Super Metroid and ALTTP Randomizer Map Tracker (ET3)",
+      "author": "Dorkmaster Flek & Ninban & gilgatex",
+      "game_name": "Super Metroid + LTTP Randomizer",
+      "version": "3.6.5",
+      "flags": [ "map", "pins", "chathud", "autotracker" ],
+      "required_app_version": "3.0.3.2",
+      "uid": "smalttprando_gilgatex_emotracker3",
+      "link": "https://raw.githubusercontent.com/EmoTracker-Community/EmoTracker-Service/main/service/packages/smalttprando_gilgatex_emotracker3.zip",
+      "variants": [
+        {
+          "name": "Standard",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        },
+        {
+          "name": "Keysanity",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        },
+        {
+          "name": "Blitz (Standard)",
+          "flags": [ "map", "pins", "chathud", "autotracker" ]
+        }
+      ]
+    }
   ]
 }
