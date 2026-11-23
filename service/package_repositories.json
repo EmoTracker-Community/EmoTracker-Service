@@ -71,5 +71,6 @@
     "Phantom": "https://emotracker.phantom-games.com/repository.json",
     "CommodoreCanadia64": "https://raw.githubusercontent.com/CommodoreCanadia64/PSIVPDTRACKER/main/repository.json",
     "skarthe": "https://skarthetwitch.github.io/repositories/repository.json",
-    "ZellyDev Games": "https://raw.githubusercontent.com/ZellyDev-Games/emotracker-repository/main/repository.json"
+    "ZellyDev Games": "https://raw.githubusercontent.com/ZellyDev-Games/emotracker-repository/main/repository.json",
+    "KlausInTheHouse": "https://raw.githubusercontent.com/klausinthehouse/OoTMMR_tracker_pack/refs/heads/develop/repository.json"
 }
